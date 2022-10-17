@@ -35,7 +35,7 @@ ip,top,netstat,df,awk,grep,sed,free,lscpu,uptime,iftop,iotop,md5sum,tr,cd,ssh,rs
 
 ### 三、工作原理
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/monitor-info.png "monitor-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/monitor-info.png "monitor-info.png")
 
 #### 1、server
 
@@ -265,8 +265,8 @@ insert into tb_monitor_host_config select 0,'192.168.168.11',1;  #多个机器�
 
 新建一个数据源
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-1.png "grafana-data-source-1.png")
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-2.png "grafana-data-source-2.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-1.png "grafana-data-source-1.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-2.png "grafana-data-source-2.png")
 
 需要选择MySQL数据源
 
@@ -283,11 +283,11 @@ $ ll init/grafana.json
 -rw-r--r-- 1 root root 47875 Jun 23 14:28 init/grafana.json
 ```
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-5.png "grafana-data-source-5.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-5.png "grafana-data-source-5.png")
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-6.png "grafana-data-source-6.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-6.png "grafana-data-source-6.png")
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-7.png "grafana-data-source-7.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-7.png "grafana-data-source-7.png")
 
 
 > 本配置是在grafana 8.3.1 版本下生成的。需要注意一下版本，不同版本可能不兼容。
@@ -315,37 +315,37 @@ echo "*/1 * * * * bash /opt/soft/rpc_for_monitor/start_server.sh" >> /var/spool/
 
 ##### （1）主页面
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/all-info.png "all-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/all-info.png "all-info.png")
 
 > 总共有五个ROW，前面五个是机器级别的监控图，process是进程的监控图
 
 ##### （2）CPU页面
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/cpu-info.png "cpu-info.png")
+![输入图片说明]([https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/cpu-info.png](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/cpu-info.png) "cpu-info.png")
 
 > 整个机器的CPU使用情况。
 
 ##### （3）内存页面
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/mem-info.png "mem-info.png")
+![输入图片说明]([https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/mem-info.png](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/mem-info.png) "mem-info.png")
 
 > 整个机器的内存使用情况。
 
 ##### （4）磁盘页面
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/disk-info.png "disk-info.png")
+![输入图片说明]([https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/disk-info.png](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/disk-info.png) "disk-info.png")
 
 > 整个机器的磁盘使用情况，如果没有定义具体的挂载点，会采集所有的挂载点。
 
 ##### （5）网络页面
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/net-info.png "net-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/net-info.png "net-info.png")
 
 > 整个机器的网络使用情况。
 
 ##### （6）进程页面
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/process-info.png "process-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/process-info.png "process-info.png")
 
 > 会看到具体的进程对系统资源的使用情况
 
