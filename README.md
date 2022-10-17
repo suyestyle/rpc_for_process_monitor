@@ -321,19 +321,19 @@ echo "*/1 * * * * bash /opt/soft/rpc_for_monitor/start_server.sh" >> /var/spool/
 
 ##### （2）CPU页面
 
-![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/cpu-info.png) "cpu-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/cpu-info.png "cpu-info.png")
 
 > 整个机器的CPU使用情况。
 
 ##### （3）内存页面
 
-![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/mem-info.png) "mem-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/mem-info.png "mem-info.png")
 
 > 整个机器的内存使用情况。
 
 ##### （4）磁盘页面
 
-![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/disk-info.png) "disk-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/disk-info.png "disk-info.png")
 
 > 整个机器的磁盘使用情况，如果没有定义具体的挂载点，会采集所有的挂载点。
 
