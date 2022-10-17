@@ -270,11 +270,11 @@ insert into tb_monitor_host_config select 0,'192.168.168.11',1;  #多个机器�
 
 需要选择MySQL数据源
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-3.png "grafana-data-source-3.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-3.png "grafana-data-source-3.png")
 
 数据源的名称要求写【dba_process_monitor】，如果跟grafana配置不一致可能会有影响。
 
-![输入图片说明](https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/grafana-data-source-4.png "grafana-data-source-4.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/grafana-data-source-4.png "grafana-data-source-4.png")
 
 ##### （2）导入json配置
 
@@ -321,19 +321,19 @@ echo "*/1 * * * * bash /opt/soft/rpc_for_monitor/start_server.sh" >> /var/spool/
 
 ##### （2）CPU页面
 
-![输入图片说明]([https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/cpu-info.png](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/cpu-info.png) "cpu-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/cpu-info.png) "cpu-info.png")
 
 > 整个机器的CPU使用情况。
 
 ##### （3）内存页面
 
-![输入图片说明]([https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/mem-info.png](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/mem-info.png) "mem-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/mem-info.png) "mem-info.png")
 
 > 整个机器的内存使用情况。
 
 ##### （4）磁盘页面
 
-![输入图片说明]([https://gitee.com/mo-shan/rpc_for_process_monitor/raw/master/img/disk-info.png](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/disk-info.png) "disk-info.png")
+![输入图片说明](https://github.com/suyestyle/rpc_for_process_monitor/blob/main/img/disk-info.png) "disk-info.png")
 
 > 整个机器的磁盘使用情况，如果没有定义具体的挂载点，会采集所有的挂载点。
 
