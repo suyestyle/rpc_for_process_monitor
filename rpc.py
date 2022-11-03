@@ -56,7 +56,7 @@ def f_init_client(DB):
     #检查监控状态, 如果有超过两分钟没有上报状态的节点就告警
     sql = """select rshost from """ + t_host_config + """ where istate = 2 and rshost not in (select rshost from """ + t_host_info + """
         where a_time > date_add(now(), INTERVAL - 2 MINUTE) group by rshost)
-        and rshost not in (select rshost from """ + t_alert_info + """ where istate = 1 and a_time > date_add(now(), INTERVAL - 5 MINUTE));"""
+        and rshost not in (select rshost from """ + t_alert_info + """ where (istate > 0 and a_time > date_add(now(), INTERVAL - 10 MINUTE)) or istate >= 10);"""
 
     status, data, DB = f_query_mysql(DB, "select", {"sql" : sql})
 
@@ -72,7 +72,9 @@ def f_init_client(DB):
 
         for node in data :
 
-            replace_sql[node[0]] = "replace into " + t_alert_info + "(rshost,istate,a_time,remarks) select '" + node[0] + "', 1,now(),'超过2min未上报';"
+            replace_sql[node[0]] = """insert into """ + t_alert_info + """(rshost,istate,a_time,remarks) 
+                values('""" + node[0] + """', 1,now(),'超过2min未上报') 
+                on duplicate key update istate=istate +1,a_time=now();"""
 
             error_members.append(node[0])
 
@@ -85,6 +87,39 @@ def f_init_client(DB):
         f_write_log(log_opt = "ERROR", log = "[ 超过2min未上报的节点有 : " + ",".join(error_members) + " ]", log_file = log_file)
 
         f_send_alert_to_bot("进程监控, 超过2min未上报的节点有 : " + ",".join(error_members))
+
+    #检查监控状态, 恢复的告警提示
+    sql = """select rshost from """ + t_alert_info + """ where istate = 1 and rshost in (select rshost from """ + t_host_info + """
+        where a_time > date_add(now(), INTERVAL - 2 MINUTE) group by rshost)"""
+
+    status, data, DB = f_query_mysql(DB, "select", {"sql" : sql})
+
+    replace_sql = {}
+
+    error_members = []
+
+    if data is None or len(data) == 0:
+
+        pass
+
+    else :
+
+        for node in data :
+
+            replace_sql[node[0]] = "update " + t_alert_info + " set istate = 0 where rshost = '" + node[0] + "'"
+
+            error_members.append(node[0])
+
+        status, data, DB = f_query_mysql(DB, "insert", replace_sql)
+
+        if (status != 0) :
+
+            f_write_log(log_opt = "ERROR", log = "[ 告警状态更新失败 ] [ " + "\n".join(replace_sql.values()) + " ] ", log_file = log_file)
+
+        f_write_log(log_opt = "INFO", log = "[ 超过2min未上报的节点已经恢复有 : " + ",".join(error_members) + " ]", log_file = log_file)
+
+        f_send_alert_to_bot("告警恢复: 进程监控, 超过2min未上报的节点有 : " + ",".join(error_members))
+
 
     #检查监控数据, 保留retention_day天数
     delete_sql = {}
